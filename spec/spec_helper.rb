@@ -16,8 +16,6 @@
 ENV['RACK_ENV'] = 'test'
 
 require './app'
-require 'sinatra'
-require 'sinatra/reloader'
 
 require 'capybara'
 require 'capybara/rspec'

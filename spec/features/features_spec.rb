@@ -1,5 +1,6 @@
 require './app.rb'
 require 'capybara/rspec'
+require 'features/web_helpers.rb'
 
 # describe "Testing infrastructure", type: :feature do
 #     it "should show 'Testing infrastructure working!'" do
@@ -10,20 +11,14 @@ require 'capybara/rspec'
 
 describe "Enter player names", type: :feature do
     it "should allow players to enter names and see them on srceen" do
-        visit '/'
-        fill_in 'player_one', with: 'Marie'
-        fill_in 'player_two', with: 'Tim'
-        click_on 'Enter' 
+        sign_in_and_play
         expect(page).to have_content('Player One: Marie vs Player Two: Tim')
     end
 end
 
 describe "show hit point", type: :feature do
     it "should allow player one to see player two's hits" do
-        visit '/'
-        fill_in 'player_one', with: 'Marie'
-        fill_in 'player_two', with: 'Tim'
-        click_on 'Enter' 
+        sign_in_and_play
         expect(page).to have_content('Tim Hit Points: 100')
         expect(page).to have_content('Marie Hit Points: 100')
     end
