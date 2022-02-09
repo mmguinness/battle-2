@@ -10,16 +10,24 @@ require 'features/web_helpers.rb'
 # end
 
 describe "Enter player names", type: :feature do
-    it "should allow players to enter names and see them on srceen" do
+    it "should allow players to enter names and see them on screen" do
         sign_in_and_play
         expect(page).to have_content('Player One: Marie vs Player Two: Tim')
     end
 end
 
-describe "show hit point", type: :feature do
+describe "show hit points", type: :feature do
     it "should allow player one to see player two's hits" do
         sign_in_and_play
         expect(page).to have_content('Tim Hit Points: 100')
         expect(page).to have_content('Marie Hit Points: 100')
+    end
+end
+
+describe "attack player two", type: :feature do
+    it "should confirm player one attacked player two" do
+        sign_in_and_play
+        click_on 'Player One Attack'
+        expect(page).to have_content('Marie attacks Tim')
     end
 end

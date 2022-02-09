@@ -5,3 +5,10 @@ Player One: <%= @player_one %> vs Player Two: <%= @player_two %>
 <%= @player_one %> Hit Points: 100
 <%= @player_two %> Hit Points: 100
 </h2>
+<form action='/attack' method="post">
+<input type="submit" value="Player One Attack">
+</form>
+<br>
+<% if @attack == true %>
+<h3><%= @player_one %> attacks <%= @player_two %></h3>
+<% end %>
