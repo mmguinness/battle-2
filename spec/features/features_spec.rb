@@ -41,6 +41,6 @@ describe "reduce player two's hit points", type: :feature do
     it "should reduce player two's points by 10 when attacked" do
         sign_in_and_play
         click_on 'Player One Attack'
-        expect(page).to have_content('Marie Hit Points: 90')
+        expect(page).to have_content('Tim Hit Points: 90')
     end
 end
