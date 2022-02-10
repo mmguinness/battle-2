@@ -1,6 +1,8 @@
 require './app.rb'
 require 'capybara/rspec'
 require 'features/web_helpers.rb'
+require './lib/game.rb'
+
 
 # describe "Testing infrastructure", type: :feature do
 #     it "should show 'Testing infrastructure working!'" do
@@ -28,6 +30,7 @@ end
 describe "attack player two", type: :feature do
     it "should confirm player one attacked player two" do
         sign_in_and_play
+        game = Game.new
         click_on 'Player One Attack'
         expect(page).to have_content('Marie attacks Tim')
     end
@@ -40,6 +43,7 @@ end
 describe "reduce player two's hit points", type: :feature do
     it "should reduce player two's points by 10 when attacked" do
         sign_in_and_play
+        game = Game.new
         click_on 'Player One Attack'
         expect(page).to have_content('Tim Hit Points: 90')
     end

@@ -15,11 +15,5 @@ describe Player do
         end
     end 
 
-    describe "#reduce" do 
-        it "should reduce the opponent's points by 10" do 
-        player = Player.new("Francesco")
-        player.reduce 
-        expect(player.hit_points).to eq 90
-        end 
-    end 
+
 end    
